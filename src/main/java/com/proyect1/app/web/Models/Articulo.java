@@ -1,9 +1,8 @@
 package com.proyect1.app.web.Models;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,13 +11,12 @@ import javax.persistence.Table;
 public class Articulo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String cod_barras;
 	
 	@Column(name = "cod_asociado")
 	private String cod_asociado;
 	@Column(name = "id_clasificacion")
-	private Integer id_clasificacion;
+	private String id_clasificacion;
 	@Column(name = "cod_interno")
 	private String cod_interno;
 	@Column(name = "descripcion")
@@ -70,7 +68,7 @@ public class Articulo {
 		
 	}
 
-	public Articulo(String cod_barras, String cod_asociado, Integer id_clasificacion, String cod_interno,
+	public Articulo(String cod_barras, String cod_asociado, String id_clasificacion, String cod_interno,
 			String descripcion, String descripcion_corta, String cantidad_um, String id_unidad, String id_proveedor,
 			String precio_compra, String utilidad, String precio_venta, String tipo_articulo, String stock,
 			String stock_min, String stock_max, String iva, String kit_fecha_ini, String kit_fecha_fin,
@@ -120,11 +118,11 @@ public class Articulo {
 		this.cod_asociado = cod_asociado;
 	}
 
-	public Integer getId_clasificacion() {
+	public String getId_clasificacion() {
 		return id_clasificacion;
 	}
 
-	public void setId_clasificacion(Integer id_clasificacion) {
+	public void setId_clasificacion(String id_clasificacion) {
 		this.id_clasificacion = id_clasificacion;
 	}
 
@@ -311,5 +309,7 @@ public class Articulo {
 	public void setCve_producto(String cve_producto) {
 		this.cve_producto = cve_producto;
 	}
-
+	
+	
+	
 }
