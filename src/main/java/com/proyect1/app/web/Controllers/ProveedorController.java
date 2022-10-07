@@ -72,9 +72,9 @@ public class ProveedorController {
 		    result.replaceAll("-", "");
 		    result.substring(0, 32);
 		    
-			Proveedor _tutorial = this.proveedorRepository.save(new Proveedor(result ,proveedor.getRfc(), 
-					proveedor.getRazon_social(), proveedor.getNombre_contacto(), proveedor.getTel_principal(), 
-					proveedor.getTel_movil(), proveedor.getE_mail(), proveedor.getEstatus(), proveedor.getFecha_registro()));
+		    proveedor.setId_proveedor(result);
+		    
+			Proveedor _tutorial = this.proveedorRepository.save(proveedor);
 			
 			return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
 		} catch (Exception e) {

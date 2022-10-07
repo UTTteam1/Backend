@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.proyect1.app.web.Models.Articulo;
 import com.proyect1.app.web.Repository.ArticuloRepository;
 
-@CrossOrigin(origins = "http://localhost:8004")
+@CrossOrigin(origins = "http://127.0.0.1:5173/")
 @RestController
 @RequestMapping("/api")
 public class ArticuloController {
@@ -50,6 +50,5 @@ public class ArticuloController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
 	
 }
