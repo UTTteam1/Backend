@@ -13,24 +13,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.proyect1.app.web.Models.Cliente;
-import com.proyect1.app.web.Repository.ClienteRespository;
-
+import com.proyect1.app.web.Models.Direccion_proveedor;
+import com.proyect1.app.web.Repository.Direccion_proveedorRepository;
 
 @CrossOrigin(origins = "http://127.0.0.1:5173/")
 @RestController
 @RequestMapping("/api")
-public class ClienteController {
+public class Direccion_proveedorController {
 	
 	@Autowired
-	private ClienteRespository clienteRepository;
+	private Direccion_proveedorRepository dpRepository;
 	
-	@GetMapping("/cliente")
-	public ResponseEntity<List<Cliente>> Clientes() {
+	@GetMapping("/dirproveedor")
+	public ResponseEntity<List<Direccion_proveedor>> Direcciones_proveedor() {
 		try {
-			List<Cliente> tutorials = new ArrayList<Cliente>();
+			List<Direccion_proveedor> tutorials = new ArrayList<Direccion_proveedor>();
 
-			this.clienteRepository.findAll().forEach(tutorials::add);
+			this.dpRepository.findAll().forEach(tutorials::add);
 
 			if (tutorials.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -43,9 +42,9 @@ public class ClienteController {
 		}
 	}
 	
-	@GetMapping("/cliente/{id}")
-	public ResponseEntity<Cliente> getClienteById(@PathVariable("id") String id) {
-		Optional<Cliente> tutorialData = clienteRepository.findById(id);
+	@GetMapping("/dirproveedor/{id}")
+	public ResponseEntity<Direccion_proveedor> getDirProveedorById(@PathVariable("id") String id) {
+		Optional<Direccion_proveedor> tutorialData = dpRepository.findById(id);
 
 		if (tutorialData.isPresent()) {
 			return new ResponseEntity<>(tutorialData.get(), HttpStatus.OK);
@@ -53,8 +52,4 @@ public class ClienteController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
-	
-	
-	
 }

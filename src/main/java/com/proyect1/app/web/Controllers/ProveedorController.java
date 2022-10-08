@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.proyect1.app.web.Models.Proveedor;
 import com.proyect1.app.web.Repository.ProveedorRepository;
 
-@CrossOrigin(origins = "http://localhost:8004")
+@CrossOrigin(origins = "http://127.0.0.1:5173/")
 @RestController
 @RequestMapping("/api")
 public class ProveedorController {
