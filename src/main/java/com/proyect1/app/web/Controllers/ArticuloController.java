@@ -115,4 +115,41 @@ public class ArticuloController {
 		}
 	}
 	
+	
+	public void updateWithVenta(String id, Articulo articulo) {
+		Optional<Articulo> tutorialData = articuloRepository.findById(id);
+
+		if (tutorialData.isPresent()) {
+			Articulo _articulo = tutorialData.get();
+			_articulo.setCod_asociado(articulo.getCod_asociado());
+			_articulo.setId_clasificacion(articulo.getId_clasificacion());
+			_articulo.setCod_interno(articulo.getCod_interno());
+			_articulo.setDescripcion(articulo.getDescripcion());
+			_articulo.setDescripcion_corta(articulo.getDescripcion_corta());
+			_articulo.setCantidad_um(articulo.getCantidad_um());
+			_articulo.setId_unidad(articulo.getId_unidad());
+			_articulo.setId_proveedor(articulo.getId_proveedor());
+			_articulo.setPrecio_compra(articulo.getPrecio_compra());
+			_articulo.setUtilidad(articulo.getUtilidad());
+			_articulo.setPrecio_venta(articulo.getPrecio_venta());
+			_articulo.setTipo_articulo(articulo.getTipo_articulo());
+			_articulo.setStock(articulo.getStock());
+			_articulo.setStock_min(articulo.getStock_min());
+			_articulo.setStock_max(articulo.getStock_max());
+			_articulo.setIva(articulo.getIva());
+			_articulo.setKit_fecha_ini(articulo.getKit_fecha_ini());
+			_articulo.setKit_fecha_fin(articulo.getKit_fecha_fin());
+			_articulo.setArticulo_disponible(articulo.getArticulo_disponible());
+			_articulo.setKit(articulo.getKit());
+			_articulo.setFecha_registro(articulo.getFecha_registro());
+			_articulo.setVisible(articulo.getVisible());
+			_articulo.setPuntos(articulo.getPuntos());
+			_articulo.setLast_update_inventory(articulo.getLast_update_inventory());
+			_articulo.setCod_asociado(articulo.getCod_asociado());
+			articuloRepository.save(_articulo);
+		} else {
+			
+		}
+	}
+	
 }
